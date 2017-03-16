@@ -1,9 +1,9 @@
 //
 //  ViewController.h
-//  TLV
+//  ControlDemo
 //
-//  Created by lawrence on 16/12/14.
-//  Copyright © 2016年 李辉. All rights reserved.
+//  Created by lawrence on 17/3/16.
+//  Copyright © 2017年 李辉. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

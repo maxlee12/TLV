@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Message>
+    <Head>
+        
+        <!--
+        目前定义缺省值= ‘01’
+        <chunk seq="01" id="Ver" type="bit" len="2" desc="版本编号" defaultvalue="01"/>
+        ‘00’ : CON报文，'01' : NON报文，‘10’ : ACK报文，'11' : RST报文
+        <chunk seq="02" id="T" type="bit" len="2" desc="报文类型"/>
+        目前定义缺省值= ‘0000’
+        <chunk seq="03" id="TKL" type="bit" len="4" desc="标识符长度" defaultvalue="0000"/>
+        当前请求端的Code = ‘00000010’， 回应端 = ‘01000101’， 是固定的。
+        -->
+        <chunk seq="01" id="Flag" type="bit" len="8" desc="版本编号+报文类型+标识符长度" defaultvalue="0x01000000"/>
+        <chunk seq="02" id="Code" type="byte" len="1" desc="功能码/响应码" defaultvalue="0x0000010"/>
+        <!-- 报文编号的取值范围：[1, 65535] 心跳报文Message ID为 0，其它报文Message ID设备和服务器各自1-65535循环使用。
+         对端响应消息中的Message ID保持一致即可 -->
+        <chunk seq="03" id="Message_ID" type="byte" len="2" desc="报文编号"/>
+        <!-- 报文和具体负载之间的分隔符，缺省值='11111111' -->
+        <chunk seq="04" id="Delimiter" type="bit" len="8" desc="分隔符" defaultvalue="0x11111111"/>
+        <!-- 这个晓泉根据业务进行分配 -->
+        <chunk seq="05" id="Service_Code" type="byte" len="1" desc="服务类型"/>
+        <!-- 这个晓泉根据业务进行分配 -->
+        <chunk seq="06" id="Group_ID" type="byte" len="4" desc="设备分组"/>
+        <!-- 数据区长度 = Payload域加密后的长度（Payload需要加密）
+         或者 = Payload域明文的长度（Payload不用加密） -->
+        <chunk seq="07" id="Data_Len" type="byte" len="2" desc="数据区长度"/>
+        <!-- 详细见各个接口说明 -->
+        <chunk seq="8" id="Command" type="byte" len="1" desc="命令类型"/>
+        <!-- 第一个字节表示类型
+         0x00表示mac 6Byte
+         0x01表示imei(15位的数字)  7Byte
+         0x02 ~ 0xff 待定
+         
+         左边补零 -->
+        <chunk seq="9" id="Device_Id" type="byte" len="8" desc="设备编号"/>
+        <!-- 左起第一位0： 字节序； 1：TLV编码方式 ；NAS协议采取TLV编码方式
+         左起第二位0：不加密；1：加密。注：加密是对payload部分加密
+         其他位暂定为0 -->
+        <chunk seq="10" id="Reserved" type="byte" len="2" desc="保留位"/>
+        <!-- 数据包payload部分按字节求和得出的结果对256求余。
+         注：如果加密，取的是加密之后payload进行checksum计算
+         计算方式为按字节（无符号）求和得出的结果对256求余 -->
+        <chunk seq="11" id="Checksum" type="byte" len="1" desc="校验和"/>
+        
+    </Head>
+    
+    <Body>
+        <!-- id为unsigned short类型 -->
+        <!-- encoding:0:原始数据类型进行编码;1:TLV方式进行编码 -->
+        <!-- type: 0:double;1:float;2:long;3:int;4:short;5:byte;6:String;7:自定义类型; -->
+        <!-- format: ordinary:普通字符串;hexadecimal:16进制字符串;binary:二进制字符串; -->
+        <chunk id="0x0001" key="switch" explain="开关状态" encoding="0"	type="7">
+            <value id="0x0001" key="turn on" explain="开" />
+            <value id="0x0002" key="turn off" explain="关" />
+        </chunk>
+        <chunk id="0x0002" key="name" explain="名字" encoding="0" type="6" format="ordinary"/>
+        <chunk id="0x0003" key="login" explain="登录" encoding="1" />
+        <chunk id="0x0004" key="account" explain="账号" encoding="0" type="6" format="ordinary"/>
+        <chunk id="0x0005" key="password" explain="密码" encoding="0" type="6" format="ordinary"/>
+        
+        <chunk id="0x0F00" key="lock_unLock" explain="加锁/解锁" encoding="0" type="7" format="ordinary"/>
+            <value id="0x0010" key="lock" explain="加锁" />
+            <value id="0x0020" key="unLock" explain="解锁" />
+            
+        <chunk id="0x6f04" key="Dev_MAC" explain="设备的mac地址" encoding="0" type="5" format="hexadecimal"/>
+        
+        <!-- 实验 -->
+        <chunk id="0x0f00" key="cmd" explain="命令类型" encoding="0" type="5" format="hexadecimal"/>
+        <!-- 心跳 -->
+        <chunk id="0x0030" key="heartBeat" explain="设备的心跳" encoding="0" type="0" format="hexadecimal"/>
+        <!-- pin -->
+        <chunk id="0x0f08" key="Dev_GPIO" explain="设备的GPIO状态" encoding="0" type="5" format="hexadecimal"/>
+        
+        <!-- 子设备控制 -->
+        <chunk id="0x0f09" key="Addr" explain="设备的Addr" encoding="0" type="5" format="hexadecimal"/>
+        <chunk id="0x0f07" key="Dev_type" explain="设备类型" encoding="0" type="5" format="hexadecimal"/>
+        <chunk id="0x0fd0" key="Num" explain="预留插孔编号" encoding="0" type="5" format="hexadecimal"/>
+        <chunk id="0x0fd1" key="Value" explain="对设备的操控命令" encoding="0" type="5" format="hexadecimal"/>
+        
+    </Body>
+</Message>  
+
+
+
+
+
+
+

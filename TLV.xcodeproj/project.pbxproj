@@ -7,14 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CC0FAFD9C07E0F73D314871 /* libPods-TLV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F39F4EFB56022DA8EBFDBD1F /* libPods-TLV.a */; };
+		210724601E3491D8000C55D9 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2107245F1E3491D8000C55D9 /* GDataXMLNode.m */; };
 		214542E81E00E88200B7DE5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 214542E71E00E88200B7DE5B /* main.m */; };
 		214542EB1E00E88200B7DE5B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 214542EA1E00E88200B7DE5B /* AppDelegate.m */; };
-		214542EE1E00E88200B7DE5B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214542ED1E00E88200B7DE5B /* ViewController.m */; };
-		214542F11E00E88200B7DE5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214542EF1E00E88200B7DE5B /* Main.storyboard */; };
 		214542F31E00E88200B7DE5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 214542F21E00E88200B7DE5B /* Assets.xcassets */; };
 		214542F61E00E88200B7DE5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214542F41E00E88200B7DE5B /* LaunchScreen.storyboard */; };
 		214543011E00E88200B7DE5B /* TLVTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 214543001E00E88200B7DE5B /* TLVTests.m */; };
 		2145430C1E00E88200B7DE5B /* TLVUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2145430B1E00E88200B7DE5B /* TLVUITests.m */; };
+		2146F39B1E024CF50011059D /* DataResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 2146F39A1E024CF50011059D /* DataResult.m */; };
+		2146F3A21E02505E0011059D /* CocoaSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 2146F3A01E02505E0011059D /* CocoaSecurity.m */; };
+		2146F3A51E02508F0011059D /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 2146F3A41E02508F0011059D /* Base64.m */; };
+		2146F3A81E0280900011059D /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 2146F3A71E0280900011059D /* Util.m */; };
+		214E9FED1E7A6F180076FB2D /* ControlProtol.m in Sources */ = {isa = PBXBuildFile; fileRef = 214E9FD51E7A6F180076FB2D /* ControlProtol.m */; };
+		214E9FF51E7A6F180076FB2D /* libXlwDevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 214E9FE81E7A6F180076FB2D /* libXlwDevice.a */; };
+		214E9FFC1E7A70A60076FB2D /* HeadModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 214E9FF91E7A70A60076FB2D /* HeadModle.m */; };
+		214E9FFD1E7A70A60076FB2D /* TLVModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 214E9FFB1E7A70A60076FB2D /* TLVModle.m */; };
+		214EA0001E7A70B90076FB2D /* DicToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 214E9FFF1E7A70B90076FB2D /* DicToData.m */; };
+		214EA0061E7A72100076FB2D /* ControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214EA0021E7A72100076FB2D /* ControlViewController.m */; };
+		214EA0071E7A72100076FB2D /* ControlViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 214EA0031E7A72100076FB2D /* ControlViewController.xib */; };
+		214EA0081E7A72100076FB2D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214EA0051E7A72100076FB2D /* ViewController.m */; };
+		214EA00B1E7A72310076FB2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214EA0091E7A72310076FB2D /* Main.storyboard */; };
+		215808981E49AD4500B25734 /* TranslateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 215808971E49AD4500B25734 /* TranslateTool.m */; };
+		2158369F1E66BE7300F61AAB /* resource.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2158369E1E66BE7300F61AAB /* resource.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,13 +50,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2107245E1E3491D8000C55D9 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataXMLNode.h; sourceTree = "<group>"; };
+		2107245F1E3491D8000C55D9 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDataXMLNode.m; sourceTree = "<group>"; };
+		210724B91E34A37B000C55D9 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = usr/lib/libxml2.tbd; sourceTree = SDKROOT; };
+		210724BB1E34A396000C55D9 /* libxml2.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.2.tbd; path = usr/lib/libxml2.2.tbd; sourceTree = SDKROOT; };
 		214542E31E00E88200B7DE5B /* TLV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TLV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		214542E71E00E88200B7DE5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		214542E91E00E88200B7DE5B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		214542EA1E00E88200B7DE5B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		214542EC1E00E88200B7DE5B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		214542ED1E00E88200B7DE5B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		214542F01E00E88200B7DE5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		214542F21E00E88200B7DE5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		214542F51E00E88200B7DE5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		214542F71E00E88200B7DE5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +67,37 @@
 		214543071E00E88200B7DE5B /* TLVUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TLVUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2145430B1E00E88200B7DE5B /* TLVUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLVUITests.m; sourceTree = "<group>"; };
 		2145430D1E00E88200B7DE5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2146F3991E024CF50011059D /* DataResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataResult.h; sourceTree = "<group>"; };
+		2146F39A1E024CF50011059D /* DataResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataResult.m; sourceTree = "<group>"; };
+		2146F39F1E02505E0011059D /* CocoaSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaSecurity.h; sourceTree = "<group>"; };
+		2146F3A01E02505E0011059D /* CocoaSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CocoaSecurity.m; sourceTree = "<group>"; };
+		2146F3A31E02508F0011059D /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		2146F3A41E02508F0011059D /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		2146F3A61E0280900011059D /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		2146F3A71E0280900011059D /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		214E9FD41E7A6F180076FB2D /* ControlProtol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlProtol.h; sourceTree = "<group>"; };
+		214E9FD51E7A6F180076FB2D /* ControlProtol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlProtol.m; sourceTree = "<group>"; };
+		214E9FE81E7A6F180076FB2D /* libXlwDevice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libXlwDevice.a; sourceTree = "<group>"; };
+		214E9FE91E7A6F180076FB2D /* XlwDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XlwDevice.h; sourceTree = "<group>"; };
+		214E9FF61E7A6F500076FB2D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		214E9FF81E7A70A60076FB2D /* HeadModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadModle.h; sourceTree = "<group>"; };
+		214E9FF91E7A70A60076FB2D /* HeadModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadModle.m; sourceTree = "<group>"; };
+		214E9FFA1E7A70A60076FB2D /* TLVModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLVModle.h; sourceTree = "<group>"; };
+		214E9FFB1E7A70A60076FB2D /* TLVModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLVModle.m; sourceTree = "<group>"; };
+		214E9FFE1E7A70B90076FB2D /* DicToData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DicToData.h; sourceTree = "<group>"; };
+		214E9FFF1E7A70B90076FB2D /* DicToData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DicToData.m; sourceTree = "<group>"; };
+		214EA0011E7A72100076FB2D /* ControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlViewController.h; sourceTree = "<group>"; };
+		214EA0021E7A72100076FB2D /* ControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ControlViewController.m; sourceTree = "<group>"; };
+		214EA0031E7A72100076FB2D /* ControlViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlViewController.xib; sourceTree = "<group>"; };
+		214EA0041E7A72100076FB2D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		214EA0051E7A72100076FB2D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		214EA00A1E7A72310076FB2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		215808961E49AD4500B25734 /* TranslateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateTool.h; sourceTree = "<group>"; };
+		215808971E49AD4500B25734 /* TranslateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslateTool.m; sourceTree = "<group>"; };
+		2158369E1E66BE7300F61AAB /* resource.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = resource.xml; sourceTree = "<group>"; };
+		4E6106BC33216F7F0691638E /* Pods-TLV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TLV.release.xcconfig"; path = "Pods/Target Support Files/Pods-TLV/Pods-TLV.release.xcconfig"; sourceTree = "<group>"; };
+		A18DAF7796EE01A3E9B81D50 /* Pods-TLV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TLV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TLV/Pods-TLV.debug.xcconfig"; sourceTree = "<group>"; };
+		F39F4EFB56022DA8EBFDBD1F /* libPods-TLV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TLV.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CC0FAFD9C07E0F73D314871 /* libPods-TLV.a in Frameworks */,
+				214E9FF51E7A6F180076FB2D /* libXlwDevice.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +127,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2107245D1E3491CD000C55D9 /* GDataXML */ = {
+			isa = PBXGroup;
+			children = (
+				2158369E1E66BE7300F61AAB /* resource.xml */,
+				2107245E1E3491D8000C55D9 /* GDataXMLNode.h */,
+				2107245F1E3491D8000C55D9 /* GDataXMLNode.m */,
+			);
+			path = GDataXML;
+			sourceTree = "<group>";
+		};
+		210724B81E34A37B000C55D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				210724BB1E34A396000C55D9 /* libxml2.2.tbd */,
+				210724B91E34A37B000C55D9 /* libxml2.tbd */,
+				F39F4EFB56022DA8EBFDBD1F /* libPods-TLV.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		214542DA1E00E88200B7DE5B = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +154,8 @@
 				214542FF1E00E88200B7DE5B /* TLVTests */,
 				2145430A1E00E88200B7DE5B /* TLVUITests */,
 				214542E41E00E88200B7DE5B /* Products */,
+				210724B81E34A37B000C55D9 /* Frameworks */,
+				3AEC97FA6D8A2B20408E1726 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,11 +172,20 @@
 		214542E51E00E88200B7DE5B /* TLV */ = {
 			isa = PBXGroup;
 			children = (
+				214E9FF71E7A70A60076FB2D /* ModelTLVData */,
+				214E9FCD1E7A6F180076FB2D /* ControlProtol */,
+				214E9FE71E7A6F180076FB2D /* SmartConfig */,
+				2107245D1E3491CD000C55D9 /* GDataXML */,
+				2146F3911E024B9B0011059D /* DataTypeTool */,
 				214542E91E00E88200B7DE5B /* AppDelegate.h */,
 				214542EA1E00E88200B7DE5B /* AppDelegate.m */,
-				214542EC1E00E88200B7DE5B /* ViewController.h */,
-				214542ED1E00E88200B7DE5B /* ViewController.m */,
-				214542EF1E00E88200B7DE5B /* Main.storyboard */,
+				214EA0011E7A72100076FB2D /* ControlViewController.h */,
+				214EA0021E7A72100076FB2D /* ControlViewController.m */,
+				214EA0031E7A72100076FB2D /* ControlViewController.xib */,
+				214EA0041E7A72100076FB2D /* ViewController.h */,
+				214EA0051E7A72100076FB2D /* ViewController.m */,
+				214EA0091E7A72310076FB2D /* Main.storyboard */,
+				214E9FF61E7A6F500076FB2D /* PrefixHeader.pch */,
 				214542F21E00E88200B7DE5B /* Assets.xcassets */,
 				214542F41E00E88200B7DE5B /* LaunchScreen.storyboard */,
 				214542F71E00E88200B7DE5B /* Info.plist */,
@@ -140,6 +220,71 @@
 			path = TLVUITests;
 			sourceTree = "<group>";
 		};
+		2146F3911E024B9B0011059D /* DataTypeTool */ = {
+			isa = PBXGroup;
+			children = (
+				215808961E49AD4500B25734 /* TranslateTool.h */,
+				215808971E49AD4500B25734 /* TranslateTool.m */,
+				2146F3A61E0280900011059D /* Util.h */,
+				2146F3A71E0280900011059D /* Util.m */,
+				2146F3A31E02508F0011059D /* Base64.h */,
+				2146F3A41E02508F0011059D /* Base64.m */,
+				2146F3991E024CF50011059D /* DataResult.h */,
+				2146F39A1E024CF50011059D /* DataResult.m */,
+				2146F39C1E02505E0011059D /* CocoaSecurity */,
+			);
+			path = DataTypeTool;
+			sourceTree = "<group>";
+		};
+		2146F39C1E02505E0011059D /* CocoaSecurity */ = {
+			isa = PBXGroup;
+			children = (
+				2146F39F1E02505E0011059D /* CocoaSecurity.h */,
+				2146F3A01E02505E0011059D /* CocoaSecurity.m */,
+			);
+			path = CocoaSecurity;
+			sourceTree = "<group>";
+		};
+		214E9FCD1E7A6F180076FB2D /* ControlProtol */ = {
+			isa = PBXGroup;
+			children = (
+				214E9FD41E7A6F180076FB2D /* ControlProtol.h */,
+				214E9FD51E7A6F180076FB2D /* ControlProtol.m */,
+			);
+			path = ControlProtol;
+			sourceTree = "<group>";
+		};
+		214E9FE71E7A6F180076FB2D /* SmartConfig */ = {
+			isa = PBXGroup;
+			children = (
+				214E9FE81E7A6F180076FB2D /* libXlwDevice.a */,
+				214E9FE91E7A6F180076FB2D /* XlwDevice.h */,
+			);
+			path = SmartConfig;
+			sourceTree = "<group>";
+		};
+		214E9FF71E7A70A60076FB2D /* ModelTLVData */ = {
+			isa = PBXGroup;
+			children = (
+				214E9FF81E7A70A60076FB2D /* HeadModle.h */,
+				214E9FF91E7A70A60076FB2D /* HeadModle.m */,
+				214E9FFA1E7A70A60076FB2D /* TLVModle.h */,
+				214E9FFB1E7A70A60076FB2D /* TLVModle.m */,
+				214E9FFE1E7A70B90076FB2D /* DicToData.h */,
+				214E9FFF1E7A70B90076FB2D /* DicToData.m */,
+			);
+			path = ModelTLVData;
+			sourceTree = "<group>";
+		};
+		3AEC97FA6D8A2B20408E1726 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A18DAF7796EE01A3E9B81D50 /* Pods-TLV.debug.xcconfig */,
+				4E6106BC33216F7F0691638E /* Pods-TLV.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +292,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 214543101E00E88200B7DE5B /* Build configuration list for PBXNativeTarget "TLV" */;
 			buildPhases = (
+				562674AFDEAB3BCBC9926A0A /* [CP] Check Pods Manifest.lock */,
 				214542DF1E00E88200B7DE5B /* Sources */,
 				214542E01E00E88200B7DE5B /* Frameworks */,
 				214542E11E00E88200B7DE5B /* Resources */,
+				4E39D78327EF7E3B7000B440 /* [CP] Embed Pods Frameworks */,
+				9F0448325B18440AA6CE538D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,8 +398,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				214542F61E00E88200B7DE5B /* LaunchScreen.storyboard in Resources */,
+				214EA00B1E7A72310076FB2D /* Main.storyboard in Resources */,
 				214542F31E00E88200B7DE5B /* Assets.xcassets in Resources */,
-				214542F11E00E88200B7DE5B /* Main.storyboard in Resources */,
+				214EA0071E7A72100076FB2D /* ControlViewController.xib in Resources */,
+				2158369F1E66BE7300F61AAB /* resource.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,14 +421,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4E39D78327EF7E3B7000B440 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TLV/Pods-TLV-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		562674AFDEAB3BCBC9926A0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9F0448325B18440AA6CE538D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TLV/Pods-TLV-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		214542DF1E00E88200B7DE5B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				214542EE1E00E88200B7DE5B /* ViewController.m in Sources */,
+				214EA0081E7A72100076FB2D /* ViewController.m in Sources */,
+				2146F3A21E02505E0011059D /* CocoaSecurity.m in Sources */,
+				2146F3A51E02508F0011059D /* Base64.m in Sources */,
+				2146F39B1E024CF50011059D /* DataResult.m in Sources */,
+				210724601E3491D8000C55D9 /* GDataXMLNode.m in Sources */,
+				214EA0001E7A70B90076FB2D /* DicToData.m in Sources */,
 				214542EB1E00E88200B7DE5B /* AppDelegate.m in Sources */,
+				214EA0061E7A72100076FB2D /* ControlViewController.m in Sources */,
+				214E9FED1E7A6F180076FB2D /* ControlProtol.m in Sources */,
+				2146F3A81E0280900011059D /* Util.m in Sources */,
+				214E9FFD1E7A70A60076FB2D /* TLVModle.m in Sources */,
 				214542E81E00E88200B7DE5B /* main.m in Sources */,
+				215808981E49AD4500B25734 /* TranslateTool.m in Sources */,
+				214E9FFC1E7A70A60076FB2D /* HeadModle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,20 +523,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		214542EF1E00E88200B7DE5B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				214542F01E00E88200B7DE5B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		214542F41E00E88200B7DE5B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				214542F51E00E88200B7DE5B /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		214EA0091E7A72310076FB2D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				214EA00A1E7A72310076FB2D /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -423,25 +632,63 @@
 		};
 		214543111E00E88200B7DE5B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A18DAF7796EE01A3E9B81D50 /* Pods-TLV.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6F8WFPS43G;
+				ENABLE_BITCODE = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TLV/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = TLV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xqopen.TLV;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TLV/SmartConfig",
+				);
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xqopen.ControlDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
 		214543121E00E88200B7DE5B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E6106BC33216F7F0691638E /* Pods-TLV.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6F8WFPS43G;
+				ENABLE_BITCODE = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/TLV/PrefixHeader.pch";
+				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = TLV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = xqopen.TLV;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/TLV/SmartConfig",
+				);
+				OTHER_LDFLAGS = (
+					"-lxml2",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = xqopen.ControlDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
@@ -514,6 +761,7 @@
 				214543121E00E88200B7DE5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		214543131E00E88200B7DE5B /* Build configuration list for PBXNativeTarget "TLVTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +770,7 @@
 				214543151E00E88200B7DE5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		214543161E00E88200B7DE5B /* Build configuration list for PBXNativeTarget "TLVUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +779,7 @@
 				214543181E00E88200B7DE5B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
