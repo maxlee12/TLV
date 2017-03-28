@@ -61,46 +61,38 @@ static DicToData *dicToData = nil;
     
     NSMutableData *sendData = [NSMutableData data];
     
+    /*
+     BODY
+     */
+    NSData *bodyData = [self setBodyModlewith:bodyDic];
+    //加密
+    NSData *enBodyData = [CocoaSecurity encryptAes128Data:bodyData andkey:@"0123456789abcdef"];
+    
+#warning mark debug-todelete
+    enBodyData = bodyData;
+    
+    NSUInteger len = enBodyData.length;
+    /*
+     HEADER
+     */
     NSDictionary *headDic = @{
                               @"Flag":@"01000000", //bit
-                              @"Message_ID":@"65535",
+                              @"Code":@"00000010", //bit
+                              @"Message_ID":@"256",
                               @"Delimiter":@"11111111", //bit
                               @"Service_Code":@"0x05",
                               @"Group_ID":@"0x05000001",
-                              @"Data_Len":@"0x0000",
-                              @"Command":@"0x00",
+                              @"Data_Len":[NSString stringWithFormat:@"%lu",(unsigned long)len],
+                              @"Command":@"0x0F",
                               @"Device_Id":mac,
                               @"Reserved":@"0x8000",
-                              @"Checksum":@"0x00",
+                              @"Checksum":[NSString stringWithFormat:@"%lu",len%256],
                               };
-    
     
     NSData *headData = [self setHeadModlewith:headDic];
     
-    //转 对应类型转 number
-    
-    /*
-     
-    NSDictionary *bodyDic = @{
-                              @"lock_unLock":@"lock",
-                              @"Dev_MAC":@"0x00123456789a",
-                              };
-     
-     */
-    
-    NSData *bodyData = [self setBodyModlewith:bodyDic];
-    
-    //加密
-    
-    NSData *enBodyData = [CocoaSecurity encryptAes128Data:bodyData andkey:@"0123456789abcdef"];
-    
-    
-    //取长度
-    NSMutableData *mutHeadeData = [NSMutableData dataWithData:headData];
-    NSInteger length = enBodyData.length;
-    [mutHeadeData replaceBytesInRange:NSMakeRange(10, 2) withBytes:(Byte *)&length];
-    //校验和
-    [sendData appendData:mutHeadeData];
+    //组装header和body
+    [sendData appendData:headData];
     [sendData appendData:enBodyData];
     
     //
@@ -267,6 +259,7 @@ static DicToData *dicToData = nil;
     
     NSMutableData *sendData = [NSMutableData data];
     for (HeadModle *headModle in _headBaseArr) {
+        
         for (NSString *key in dic.allKeys) {
             
             if ([headModle.idName isEqualToString:key]) {
@@ -322,7 +315,7 @@ static DicToData *dicToData = nil;
                     NSData *t  = [self str_oxToData:tlvModle.idName length:2];
                     
                     // v;
-                    NSData *v = [self strToData:dic[key] type:[tlvModle.type integerValue]];
+                    NSData *v = [self strToData:dic[key] type:[tlvModle.type integerValue] len:[tlvModle.length integerValue]];
                     
                     
                     // l;
@@ -361,17 +354,19 @@ static DicToData *dicToData = nil;
     }else{
         
         //十进制
-        UInt8 t = [str intValue];
-        UInt16 netNumber = htons(t);
+        UInt16 t = [str integerValue];
+        if (len > 1) {
+            UInt16 t = htons(t);
+        }
         //
-        data = [NSData dataWithBytes:(Byte *)&netNumber length:len];
+        data = [NSData dataWithBytes:(Byte *)&t length:len];
     }
     
     return data;
 }
 
 // TODO:V
--(NSData*)strToData:(NSString*)str type:(NSInteger)type{
+-(NSData*)strToData:(NSString*)str type:(NSInteger)type len:(NSInteger)len{
     
     //    type: 0:double;1:float;2:long;3:int;4:short;5:byte;6:String;7:自定义类型;
     
@@ -379,8 +374,11 @@ static DicToData *dicToData = nil;
     
     if (type == 0 || type == 1 || type == 2 || type == 3 || type == 4) {
         NSInteger number = [str  integerValue];
-        UInt16 netNumber = htons(number);
-        data = [NSData dataWithBytes:(Byte *)&netNumber length:2];
+        if (len > 1) {
+           UInt16 number = htons(number);
+        }
+        data = [NSData dataWithBytes:(Byte *)&number length:len];
+
     }
     if (type == 5) {
         //bye
@@ -437,8 +435,11 @@ static DicToData *dicToData = nil;
             
             
         }else{
-            //UInt16 netNumber = htons(t);
+            
             NSInteger num = [str integerValue];
+            if (len > 1) {
+                UInt16 num = htons(num);
+            }
             data = [NSData dataWithBytes:(Byte *)&num length:len];
         }
     }

@@ -15,7 +15,9 @@
 
 //
 //L口
-#define DevicePort 8530
+
+//8530
+#define DevicePort 5000
 #define iOS_Version [[[UIDevice currentDevice]systemVersion] floatValue]
 
 

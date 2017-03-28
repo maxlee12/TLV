@@ -181,7 +181,8 @@
         return [[NSData alloc] init];
     }
     NSUInteger value = strtoul([bits UTF8String], NULL, 2);
-    NSData *data = [NSData dataWithBytes:&value length:sizeof(value)];
+    NSUInteger len = bits.length/8;
+    NSData *data = [NSData dataWithBytes:&value length:len];
     return data;
 }
 

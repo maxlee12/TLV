@@ -7,17 +7,19 @@
         <chunk seq="01" id="Ver" type="bit" len="2" desc="版本编号" defaultvalue="01"/>
         ‘00’ : CON报文，'01' : NON报文，‘10’ : ACK报文，'11' : RST报文
         <chunk seq="02" id="T" type="bit" len="2" desc="报文类型"/>
-        目前定义缺省值= ‘0000’
+        目前定义缺省值= ‘00’
         <chunk seq="03" id="TKL" type="bit" len="4" desc="标识符长度" defaultvalue="0000"/>
-        当前请求端的Code = ‘00000010’， 回应端 = ‘01000101’， 是固定的。
         -->
-        <chunk seq="01" id="Flag" type="bit" len="8" desc="版本编号+报文类型+标识符长度" defaultvalue="0x01000000"/>
-        <chunk seq="02" id="Code" type="byte" len="1" desc="功能码/响应码" defaultvalue="0x0000010"/>
+        <chunk seq="01" id="Flag" type="bit" len="8" desc="版本编号+报文类型+标识符长度" defaultvalue="01000000"/>
+        
+        <!--  当前请求端的Code = ‘00000010’， 回应端 = ‘01000101’， 是固定的。 -->
+        <chunk seq="02" id="Code" type="bit" len="8" desc="功能码/响应码" defaultvalue="00000010"/>
+        
         <!-- 报文编号的取值范围：[1, 65535] 心跳报文Message ID为 0，其它报文Message ID设备和服务器各自1-65535循环使用。
          对端响应消息中的Message ID保持一致即可 -->
         <chunk seq="03" id="Message_ID" type="byte" len="2" desc="报文编号"/>
         <!-- 报文和具体负载之间的分隔符，缺省值='11111111' -->
-        <chunk seq="04" id="Delimiter" type="bit" len="8" desc="分隔符" defaultvalue="0x11111111"/>
+        <chunk seq="04" id="Delimiter" type="bit" len="8" desc="分隔符" defaultvalue="11111111"/>
         <!-- 这个晓泉根据业务进行分配 -->
         <chunk seq="05" id="Service_Code" type="byte" len="1" desc="服务类型"/>
         <!-- 这个晓泉根据业务进行分配 -->
