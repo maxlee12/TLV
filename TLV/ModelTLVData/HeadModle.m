@@ -19,6 +19,9 @@
     }
 }
 
-
+- (NSString*)description{
+    
+    return [NSString stringWithFormat:@"idName:%@ len:%@ des:%@ type%@",self.idName,self.len,self.desc,self.type];
+}
 
 @end

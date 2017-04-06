@@ -224,5 +224,17 @@ typedef union   {
 }
  
  */
- 
+
++ (NSInteger)uintDataCheckSum:(NSData*)data{
+    
+    NSInteger sum = 0;
+    for (int i = 0; i < data.length; i++) {
+        UInt8 flag = ((UInt8 *)[data bytes])[i];
+        sum = sum + flag;
+    }
+    
+    return sum;
+}
+
+
 @end

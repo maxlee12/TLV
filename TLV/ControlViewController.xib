@@ -105,6 +105,15 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SF9-ob-V6d">
+                    <rect key="frame" x="137" y="48" width="92" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="设备发现广播"/>
+                    <connections>
+                        <action selector="discoverDevice:" destination="-1" eventType="touchUpInside" id="BSm-G5-1hK"/>
+                        <action selector="queryGPIO:" destination="-1" eventType="touchUpInside" id="hpz-Tk-Yfl"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>

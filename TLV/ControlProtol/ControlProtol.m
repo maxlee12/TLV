@@ -127,6 +127,7 @@ static ControlProtol *protolService = nil;
         if (self.delegate &&[self.delegate respondsToSelector:@selector(didReciveData:fromAddress:)]) {
             
             [self.delegate didReciveData:data fromAddress:address];
+        
         }
     });
 

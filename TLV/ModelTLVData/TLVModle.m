@@ -37,7 +37,7 @@
 
 -(NSString*)description{
     
-    NSString *des = [NSString stringWithFormat:@"id = %@,key = %@,explain = %@,encoding = %@,type = %@,value = %@ ,length = %@",_idName,_key,_explain,_encoding,_type,_dataValue,_length];
+    NSString *des = [NSString stringWithFormat:@"id = %@,key = %@,explain = %@,encoding = %@,type = %@,value = %@ ,length = %@",_idName,_key,_explain,_encoding,_type,_dataValue,_len];
     
     return des;
     

@@ -40,7 +40,9 @@
 
 -(bool)SmartConfigV3_Start:(char*)ssid PASSWORD:(char*)pass TIMEOUT:(int)timeOut;          //请求smartconfig
 -(bool)SmartConfigV2_Start:(char*)ssid PASSWORD:(char*)pass TIMEOUT:(int)timeOut;
--(void)SmartConfigStop;                                                                 //停止smartconfig
+
+- (void)SmartConfigStop; //停止smartconfig
+
 -(int)SmartConfigProgressGet;
 
 

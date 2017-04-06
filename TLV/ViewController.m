@@ -155,6 +155,9 @@
     vc.devDic = dic;
     [self presentViewController:vc animated:YES completion:nil];
     
+    AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    [app.xlwDevice SmartConfigStop];
+
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{

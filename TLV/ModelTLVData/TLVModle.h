@@ -16,7 +16,7 @@
 @property (nonatomic,copy) NSString * type;
 
 @property (nonatomic,assign) NSString* dataValue;
-@property (nonatomic,assign) NSString* length;
+@property (nonatomic,assign) NSString* len;
 
 
 @property (nonatomic,copy) NSString* lock_unLock;

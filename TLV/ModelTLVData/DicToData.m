@@ -66,12 +66,14 @@ static DicToData *dicToData = nil;
      */
     NSData *bodyData = [self setBodyModlewith:bodyDic];
     //加密
-    NSData *enBodyData = [CocoaSecurity encryptAes128Data:bodyData andkey:@"0123456789abcdef"];
     
-#warning mark debug-todelete
-    enBodyData = bodyData;
+    NSData *enBodyData = [CocoaSecurity encryptAes128Data:bodyData andkey:@"BPEj4idhF4wlqe20"];
+    
+//#warning mark debug-todelete
+//    enBodyData = bodyData;
     
     NSUInteger len = enBodyData.length;
+    NSInteger sum = [Util uintDataCheckSum:enBodyData];
     /*
      HEADER
      */
@@ -83,10 +85,10 @@ static DicToData *dicToData = nil;
                               @"Service_Code":@"0x05",
                               @"Group_ID":@"0x05000001",
                               @"Data_Len":[NSString stringWithFormat:@"%lu",(unsigned long)len],
-                              @"Command":@"0x0F",
+                              @"Command":@"0x00",
                               @"Device_Id":mac,
-                              @"Reserved":@"0x8000",
-                              @"Checksum":[NSString stringWithFormat:@"%lu",len%256],
+                              @"Reserved":@"0xc000",
+                              @"Checksum":[NSString stringWithFormat:@"%lu",sum%256],
                               };
     
     NSData *headData = [self setHeadModlewith:headDic];
@@ -183,7 +185,7 @@ static DicToData *dicToData = nil;
     for (TLVModle *tlvModle in tempBodyBaseArr) {
         
         TLVModle *temModle = [[TLVModle new] initWithTlV:tlvModle];
-        temModle.length = [NSString stringWithFormat:@"%ld",(long)length];
+        temModle.len = [NSString stringWithFormat:@"%ld",(long)length];
         NSInteger  modleId;
         if ([temModle.idName hasPrefix:@"0x"]) {
             NSString* strId = [temModle.idName stringByReplacingCharactersInRange:NSMakeRange(0, 2) withString:@""];
@@ -276,6 +278,7 @@ static DicToData *dicToData = nil;
                     NSString *value = ((NSString*)dic[key]).length?dic[key]:headModle.defaultvalue;
                     NSData *v = [self headerStrToData:value type:headModle.type len:[headModle.len integerValue]];
                     [sendData appendData:v];
+                    
                 }
                 
                 
@@ -315,7 +318,7 @@ static DicToData *dicToData = nil;
                     NSData *t  = [self str_oxToData:tlvModle.idName length:2];
                     
                     // v;
-                    NSData *v = [self strToData:dic[key] type:[tlvModle.type integerValue] len:[tlvModle.length integerValue]];
+                    NSData *v = [self strToData:dic[key] type:[tlvModle.type integerValue] len:[tlvModle.len integerValue]];
                     
                     
                     // l;
@@ -349,17 +352,30 @@ static DicToData *dicToData = nil;
     if ([str hasPrefix:@"0x"]) {
         //十六进制字符串
         str = [str stringByReplacingCharactersInRange:NSMakeRange(0, 2) withString:@""];
-        data = [TranslateTool transStrHexToData:str];
+        
+        if (len <= 0) {
+            len = str.length/2;
+            if (str.length%2) {
+              len = str.length/2 +1;
+            }
+            
+        }
+        data = [TranslateTool transStrHexToData:str andLen:len];
         
     }else{
         
         //十进制
         UInt16 t = [str integerValue];
-        if (len > 1) {
-            UInt16 t = htons(t);
-        }
-        //
-        data = [NSData dataWithBytes:(Byte *)&t length:len];
+        data = [TranslateTool transStrHexToData:[TranslateTool ToHex:t] andLen:len];
+        
+//        if (len <= 0) {
+//            len = 2;
+//        }
+//        if (len > 1) {
+//            UInt16 t = htons(t);
+//        }
+//        //
+//        data = [NSData dataWithBytes:(Byte *)&t length:len];
     }
     
     return data;
@@ -373,6 +389,9 @@ static DicToData *dicToData = nil;
     NSData *data = [NSData data];
     
     if (type == 0 || type == 1 || type == 2 || type == 3 || type == 4) {
+        
+//        UInt16 t = [str integerValue];
+//        data = [TranslateTool transStrHexToData:[TranslateTool ToHex:t] andLen:len];
         NSInteger number = [str  integerValue];
         if (len > 1) {
            UInt16 number = htons(number);
@@ -382,7 +401,7 @@ static DicToData *dicToData = nil;
     }
     if (type == 5) {
         //bye
-        data = [self str_oxToData:str length:1];
+        data = [self str_oxToData:str length:len];
     }
     if (type == 6) {
         //string
@@ -431,16 +450,16 @@ static DicToData *dicToData = nil;
         if ([str hasPrefix:@"0x"]) {
             
             str = [str stringByReplacingCharactersInRange:NSMakeRange(0, 2) withString:@""];
-            data = [TranslateTool transStrHexToData:str];
-            
+            data = [TranslateTool transStrHexToData:str andLen:len];
             
         }else{
             
-            NSInteger num = [str integerValue];
-            if (len > 1) {
-                UInt16 num = htons(num);
-            }
-            data = [NSData dataWithBytes:(Byte *)&num length:len];
+            UInt16 t = [str integerValue];
+            data = [TranslateTool transStrHexToData:[TranslateTool ToHex:t] andLen:len];
+//            if (len > 1) {
+//                UInt16 num = htons(num);
+//            }
+//            data = [NSData dataWithBytes:(Byte *)&num length:len];
         }
     }
     

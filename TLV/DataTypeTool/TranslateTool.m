@@ -189,17 +189,20 @@
 /**
  *  16进制字符串转NSData
  */
-+ (NSData *)transStrHexToData:(NSString *)strHex
++ (NSData *)transStrHexToData:(NSString *)strHex andLen:(NSInteger)len
 {
+    NSInteger exLen = 2*len;
+    
+    while (exLen != strHex.length) {
+        
+        if (exLen < strHex.length) {
+           strHex = [strHex substringToIndex:exLen-1];
+        }else{
+            strHex = [NSString stringWithFormat:@"0%@",strHex];
+        }
+    }
     /// bytes索引
     NSUInteger j = 0;
-    
-    NSInteger len = strHex.length;
-    
-    if (len % 2 == 1) {
-        return [[NSData alloc] init];
-    }
-    
     Byte *bytes = (Byte *)malloc((len / 2 + 1) * sizeof(Byte));
     
     /// 初始化内存 其中memset的作用是在一段内存块中填充某个给定的值，它是对较大的结构体或数组进行清零操作的一种最快方法
@@ -219,7 +222,7 @@
         j ++;
     }
     /// 将字节数组转化为NSData
-    NSData *data = [[NSData alloc] initWithBytes:bytes length:len / 2];
+    NSData *data = [[NSData alloc] initWithBytes:bytes length:len];
     
     /// 释放内存
     free(bytes);

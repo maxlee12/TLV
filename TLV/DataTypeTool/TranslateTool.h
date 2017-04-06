@@ -42,7 +42,7 @@
 /**
  *  十六进制字符串转NSData
  */
-+ (NSData *)transStrHexToData:(NSString *)strHex;
++ (NSData *)transStrHexToData:(NSString *)strHex andLen:(NSInteger)len;
 
 /**
  *  NSData转十进制字符串

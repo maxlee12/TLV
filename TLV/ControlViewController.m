@@ -9,6 +9,8 @@
 #import "ControlViewController.h"
 #import "ControlProtol.h"
 #import "DicToData.h"
+
+#import "Util.h"
 @interface ControlViewController ()<RevDataDelegate>
 {
     IBOutlet __weak UITextView *_senTextV;
@@ -66,12 +68,32 @@
 
 -(void)didReciveData:(NSData *)data fromAddress:(NSData *)address{
     
+    _revTextV.text  = [NSString stringWithFormat:@"%@",data];
 }
 
 -(IBAction)backToSearch:(id)sender{
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+
+-(IBAction)discoverDevice:(id)sender{
+    
+    NSDictionary *bodyDic = @{
+                              @"cmd":@"0x0000",
+                              @"discover":_deviceMac,
+                              };
+    NSData *sendata = [[DicToData sharedInstance] dataWithDic:bodyDic and:_deviceMac];
+    NSString *host = [Util getBroadcastAddress];
+    
+    [[ControlProtol sharedInstance] sendProtocol:sendata host:host];
+    
+    _senTextV.text = [NSString stringWithFormat:@"%@",sendata];
+    
+}
+
+
 
 -(IBAction)queryGPIO:(id)sender{
 
@@ -93,7 +115,7 @@
     
     
     NSDictionary *bodyDic = @{
-                              @"cmd":@"0x0f08",
+                              @"cmd":@"0x0140",
                               @"Dev_GPIO":@"0x0000ffff",
                               };
     NSData *sendata = [[DicToData sharedInstance] dataWithDic:bodyDic and:_deviceMac];
@@ -107,7 +129,7 @@
 -(IBAction)closeGPIO:(id)sender{
     
     NSDictionary *bodyDic = @{
-                              @"cmd":@"0x0f08",
+                              @"cmd":@"0x0140",
                               @"Dev_GPIO":@"0x000000ff",
                               };
     NSData *sendata = [[DicToData sharedInstance] dataWithDic:bodyDic and:_deviceMac];
@@ -128,7 +150,7 @@
                               @"heartBeat":[NSString stringWithFormat:@"%f",time],
                               };
     NSData *sendata = [[DicToData sharedInstance] dataWithDic:bodyDic and:_deviceMac];
-    NSString *host = @"";
+    NSString *host = _deviceIp;
     
     [[ControlProtol sharedInstance] sendProtocol:sendata host:host];
     

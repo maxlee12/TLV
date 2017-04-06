@@ -35,4 +35,6 @@
 +(Byte)uint8From16Str:(NSString*)str_16;
 
 //shadow[13] =  *(Byte *)&index;
+
++ (NSInteger)uintDataCheckSum:(NSData*)data;
 @end
