@@ -18,21 +18,21 @@
 @property(retain) id<XlwDeviceDelegate> delegate;
 
 -(void)LibraryInit;
--(void)LibraryRelease;                                              //释放资源
+-(void)LibraryRelease; //释放资源
 -(void)LibrarySuspend;
 -(void)LibraryResume;
 -(char*)GetLibraryVersion;
 
--(void)SetServer:(char*)value;                                      //serve地址, 缺省为appsrv.xlwtech.com
+-(void)SetServer:(char*)value;                        //serve地址, 缺省为appsrv.xlwtech.com
 -(void)SetServerTimeout:(int)value;
 
--(void)SetStatucCheck:(int)interval;                                //状态检查间隔，＝0不检查
+-(void)SetStatucCheck:(int)interval;               //状态检查间隔，＝0不检查
 -(int)DeviceStatuGet:(char*)mac;
 
--(void)DeviceSearch;                                                //搜索模块
--(void)DeviceClear;                                                 //清除模块搜索列表
+-(void)DeviceSearch;                     //搜索模块
+-(void)DeviceClear;                      //清除模块搜索列表
 -(int) DeviceCount;
--(char*)DeviceMacGet:(int)index;                                    //获取搜索结果
+-(char*)DeviceMacGet:(int)index;         //获取搜索结果
 -(char*)DeviceIpGet:(int)index;
 -(char*)DeviceIpGetByMac:(char*)mac;
 

@@ -11,10 +11,14 @@
 #import "DicToData.h"
 
 #import "Util.h"
+#import "CocoaSecurity.h"
 @interface ControlViewController ()<RevDataDelegate>
 {
     IBOutlet __weak UITextView *_senTextV;
     IBOutlet __weak UITextView *_revTextV;
+    
+    IBOutlet __weak UILabel *macLab;
+    IBOutlet __weak UILabel *ipLab;
 }
 
 @property(nonatomic,strong) NSString *deviceMac;
@@ -50,8 +54,12 @@
     _deviceMac = [NSString stringWithFormat:@"0x%@",_devDic[@"mac"]];
     _deviceIp = [NSString stringWithFormat:@"%@",_devDic[@"ip"]];
     
+    macLab.text = _deviceMac;
+    ipLab.text = _deviceIp;
+    //
     
-    
+    //
+    [[ControlProtol sharedInstance] connect];
     [ControlProtol sharedInstance].delegate = self;
 }
 
@@ -68,6 +76,29 @@
 
 -(void)didReciveData:(NSData *)data fromAddress:(NSData *)address{
     
+    //
+    //host
+    NSMutableString * host = [[NSMutableString alloc] init];
+    for (int i = 0; i < address.length; i++){
+        UInt8 no = ((UInt8 *)address.bytes)[i];
+        [host appendFormat:@"%d.",no];
+    }
+    NSString *tempHost = [host substringWithRange:NSMakeRange(0, host.length-1)];
+    //
+    
+    UInt8 flag = ((UInt8 *)[data bytes])[1];
+    //
+    if (flag == 0x02 ) {
+        return;
+    }
+    
+    //
+    NSData *bodyData = [data subdataWithRange:NSMakeRange(24, data.length - 24)];
+    NSData *enBodyData = [CocoaSecurity decryptAes128Data:bodyData andkey:@"BPEj4idhF4wlqe20"];
+    NSArray *arr = [[DicToData sharedInstance] dicWithNsdata:enBodyData];
+    
+    NSLog(@"responseArr:%@",arr);
+    
     _revTextV.text  = [NSString stringWithFormat:@"%@",data];
 }
 
@@ -80,14 +111,15 @@
 
 -(IBAction)discoverDevice:(id)sender{
     
+    NSString *mac = @"0xFFFFFFFFFFFF";
     NSDictionary *bodyDic = @{
                               @"cmd":@"0x0000",
-                              @"discover":_deviceMac,
+                              @"devMac":mac,
                               };
-    NSData *sendata = [[DicToData sharedInstance] dataWithDic:bodyDic and:_deviceMac];
-    NSString *host = [Util getBroadcastAddress];
+    NSData *sendata = [[DicToData sharedInstance] dataWithDic:bodyDic and:mac];
+//    NSString *host = [Util getBroadcastAddress];
     
-    [[ControlProtol sharedInstance] sendProtocol:sendata host:host];
+    [[ControlProtol sharedInstance] sendProtocol:sendata host:@"255.255.255.255"];
     
     _senTextV.text = [NSString stringWithFormat:@"%@",sendata];
     
@@ -97,9 +129,11 @@
 
 -(IBAction)queryGPIO:(id)sender{
 
+    NSInteger index = 13;
+    
     NSDictionary *bodyDic = @{
                               @"cmd":@"0x0150",
-                              @"Dev_GPIO":@"0x00",
+                              @"Dev_GPIO":[NSString stringWithFormat:@"0x%.2lu%@",index,@"0000"],
                               };
     NSData *sendata = [[DicToData sharedInstance] dataWithDic:bodyDic and:_deviceMac];
     NSString *host = _deviceIp;
@@ -143,7 +177,7 @@
 
 -(IBAction)startHeartBeat:(id)sender{
     
-    NSTimeInterval time = NSTimeIntervalSince1970;
+    NSInteger time = [[NSDate date] timeIntervalSince1970];
     
     NSDictionary *bodyDic = @{
                               @"cmd":@"0x0030",
@@ -156,13 +190,18 @@
     
     _senTextV.text = [NSString stringWithFormat:@"%@",sendata];
     
+    if (!_beatTimer) {
+        
+        NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:3 repeats:YES block:^(NSTimer * _Nonnull timer) {
+            
+            [self startHeartBeat:sender];
+            
+        }];
+        _beatTimer = timer;
+    }
+
     
-   NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 repeats:YES block:^(NSTimer * _Nonnull timer) {
-       
-       [self startHeartBeat:sender];
-   }];
     
-    _beatTimer = timer;
     
 }
 

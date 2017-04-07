@@ -4,4 +4,5 @@ target 'TLV' do
     pod 'MJRefresh', '3.1.12'
     pod 'SDWebImage', '3.8.1'
     pod 'CocoaAsyncSocket', '7.5.0'
+    pod 'CocoaLumberjack', '~> 2.3.0'
 end

@@ -28,7 +28,7 @@
 @property (nonatomic ,strong) NSMutableArray *headBaseArr;
 @property (nonatomic ,strong) NSMutableArray *bodyBaseArr;
 @property (nonatomic ,strong) NSData *requestData;
-
+@property (nonatomic ,assign) NSInteger requestIndex;
 @end
 static DicToData *dicToData = nil;
 @implementation DicToData
@@ -80,7 +80,7 @@ static DicToData *dicToData = nil;
     NSDictionary *headDic = @{
                               @"Flag":@"01000000", //bit
                               @"Code":@"00000010", //bit
-                              @"Message_ID":@"256",
+                              @"Message_ID":[NSString stringWithFormat:@"%lu",_requestIndex++],
                               @"Delimiter":@"11111111", //bit
                               @"Service_Code":@"0x05",
                               @"Group_ID":@"0x05000001",
@@ -125,7 +125,7 @@ static DicToData *dicToData = nil;
         
     }
     
-    NSLog(@"%@",bodyTlvArr);
+//    NSLog(@"%@",bodyTlvArr);
     
     return bodyTlvArr;
 }

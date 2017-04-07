@@ -29,8 +29,8 @@ int  g_smartConfig = 0;
     
     _xlwDevice = [[XlwDevice alloc] init];
     _xlwDevice.delegate = self;
-    NSLog(@"init device(%s)...", [_xlwDevice GetLibraryVersion]);
-    [_xlwDevice SetStatucCheck:3000];
+//    NSLog(@"init device(%s)...", [_xlwDevice GetLibraryVersion]);
+//    [_xlwDevice SetStatucCheck:3000];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

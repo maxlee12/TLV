@@ -136,7 +136,24 @@ static ControlProtol *protolService = nil;
 - (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error
 {
     [self disconnect];
+    NSLog(@"udpSocketDidCloseWitherror:%@",error);
 }
 
+- (void)udpSocket:(GCDAsyncUdpSocket *)sock didConnectToAddress:(NSData *)address{
+    NSLog(@"udpSocketDiddidConnectToAddress:%@",address);
+}
+
+- (void)udpSocket:(GCDAsyncUdpSocket *)sock didNotConnect:(NSError *)error{
+    NSLog(@"udpSocketDidNotConnect:%@",error);
+}
+
+- (void)udpSocket:(GCDAsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error{
+    NSLog(@"udpSocketDidNotSendDataWithTag:%ld dueToError:%@",tag,error);
+}
+
+- (void)udpSocket:(GCDAsyncUdpSocket *)sock didSendDataWithTag:(long)tag{
+    
+    NSLog(@"udpSocketDidSendDataWithTag:%ld",tag);
+}
 
 @end

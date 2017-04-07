@@ -20,5 +20,5 @@
 
 - (void)sendProtocol:(NSData *)protocol host:(NSString *)host;
 
-
+- (void)connect;
 @end

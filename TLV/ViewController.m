@@ -156,6 +156,10 @@
     [self presentViewController:vc animated:YES completion:nil];
     
     AppDelegate *app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    app.xlwDevice.delegate = nil;
+    [app.xlwDevice DeviceClear];
+    [app.xlwDevice LibraryRelease];
+    [app.xlwDevice SetStatucCheck:0];
     [app.xlwDevice SmartConfigStop];
 
 }
