@@ -80,6 +80,7 @@ static ControlProtol *protolService = nil;
 {
     
     _udpSocket = [[GCDAsyncUdpSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
+    _udpSocket.delegate = self;
     
     NSError * error = nil;
     if (iOS_Version >6.0f) {

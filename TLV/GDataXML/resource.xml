@@ -58,12 +58,12 @@
         <chunk id="0x0f00" key="cmd" explain="命令类型" encoding="0" type="5" len="2" format="hexadecimal"/>
         
         
-        <chunk id="0x0010" key="cmd" explain="设备锁定" encoding="0" type="5" len="2" format="hexadecimal"/>
-        <chunk id="0x0020" key="cmd" explain="设备解锁" encoding="0" type="5" len="2" format="hexadecimal"/>
+        <chunk id="0x0010" key="lock" explain="设备锁定" encoding="0" type="5" len="2" format="hexadecimal"/>
+        <chunk id="0x0020" key="unlock" explain="设备解锁" encoding="0" type="5" len="2" format="hexadecimal"/>
         
         
         <chunk id="0x0f01" key="Res" explain="命令返回" encoding="0" type="5" len="1" format="hexadecimal"/>
-        <!-- 设备MAC -->
+        <!-- 设备IP -->
         <chunk id="0x0f02" key="devIP" explain="发现设备的IP" encoding="0" type="5" len="4" format="hexadecimal"/>
         <!-- 设备MAC -->
         <chunk id="0x0f04" key="devMac" explain="设备发的MAC" encoding="0" type="5" len="6" format="hexadecimal"/>
@@ -84,8 +84,13 @@
         <chunk id="0x0150" key="Search GPIO status" explain="查询GPIO状态" encoding="0" type="5" len="2" format="hexadecimal"/>
         
         <!-- 子设备控制 -->
-        <chunk id="0x0f09" key="Addr" explain="设备的Addr" encoding="0" type="5" len="2" format="hexadecimal"/>
-        <chunk id="0x0f07" key="Dev_type" explain="设备类型" encoding="0" type="5" len="2" format="hexadecimal"/>
+        <chunk id="0x0f09" key="Addr" explain="设备的Addr" encoding="0" type="5" len="4" format="hexadecimal"/>
+        <chunk id="0x0f07" key="Dev_type" explain="设备类型" encoding="0" type="5" len="1" format="hexadecimal"/>
+        <chunk id="0x0f10" key="OUI" explain="厂家标示" encoding="0" type="5" len="1" format="hexadecimal"/>
+        <chunk id="0x0f11" key="Dev_value" explain="RF设备状态" encoding="0" type="5" len="1" format="hexadecimal"/>
+         <chunk id="0x0f12" key="Num" explain="预留插孔编号，方便以后扩展。该值目前默认为0x00" encoding="0" type="5" len="1" format="hexadecimal" defaultvalue="0x00"/>
+         
+         
         <chunk id="0x0fd0" key="Num" explain="预留插孔编号" encoding="0" type="5" len="2" format="hexadecimal"/>
         <chunk id="0x0fd1" key="Value" explain="对设备的操控命令" encoding="0" type="5" len="2" format="hexadecimal"/>
         

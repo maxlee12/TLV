@@ -30,6 +30,8 @@
 		214EA00B1E7A72310076FB2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214EA0091E7A72310076FB2D /* Main.storyboard */; };
 		215808981E49AD4500B25734 /* TranslateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 215808971E49AD4500B25734 /* TranslateTool.m */; };
 		2158369F1E66BE7300F61AAB /* resource.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2158369E1E66BE7300F61AAB /* resource.xml */; };
+		21657EFB1F15CDBB009BC936 /* SubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21657EF91F15CDBB009BC936 /* SubViewController.m */; };
+		21657EFC1F15CDBB009BC936 /* SubViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21657EFA1F15CDBB009BC936 /* SubViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,9 @@
 		215808961E49AD4500B25734 /* TranslateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TranslateTool.h; sourceTree = "<group>"; };
 		215808971E49AD4500B25734 /* TranslateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TranslateTool.m; sourceTree = "<group>"; };
 		2158369E1E66BE7300F61AAB /* resource.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = resource.xml; sourceTree = "<group>"; };
+		21657EF81F15CDBB009BC936 /* SubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubViewController.h; sourceTree = "<group>"; };
+		21657EF91F15CDBB009BC936 /* SubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubViewController.m; sourceTree = "<group>"; };
+		21657EFA1F15CDBB009BC936 /* SubViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubViewController.xib; sourceTree = "<group>"; };
 		4E6106BC33216F7F0691638E /* Pods-TLV.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TLV.release.xcconfig"; path = "Pods/Target Support Files/Pods-TLV/Pods-TLV.release.xcconfig"; sourceTree = "<group>"; };
 		A18DAF7796EE01A3E9B81D50 /* Pods-TLV.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TLV.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TLV/Pods-TLV.debug.xcconfig"; sourceTree = "<group>"; };
 		F39F4EFB56022DA8EBFDBD1F /* libPods-TLV.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TLV.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +190,9 @@
 				214EA0041E7A72100076FB2D /* ViewController.h */,
 				214EA0051E7A72100076FB2D /* ViewController.m */,
 				214EA0091E7A72310076FB2D /* Main.storyboard */,
+				21657EF81F15CDBB009BC936 /* SubViewController.h */,
+				21657EF91F15CDBB009BC936 /* SubViewController.m */,
+				21657EFA1F15CDBB009BC936 /* SubViewController.xib */,
 				214E9FF61E7A6F500076FB2D /* PrefixHeader.pch */,
 				214542F21E00E88200B7DE5B /* Assets.xcassets */,
 				214542F41E00E88200B7DE5B /* LaunchScreen.storyboard */,
@@ -398,6 +406,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				214542F61E00E88200B7DE5B /* LaunchScreen.storyboard in Resources */,
+				21657EFC1F15CDBB009BC936 /* SubViewController.xib in Resources */,
 				214EA00B1E7A72310076FB2D /* Main.storyboard in Resources */,
 				214542F31E00E88200B7DE5B /* Assets.xcassets in Resources */,
 				214EA0071E7A72100076FB2D /* ControlViewController.xib in Resources */,
@@ -474,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21657EFB1F15CDBB009BC936 /* SubViewController.m in Sources */,
 				214EA0081E7A72100076FB2D /* ViewController.m in Sources */,
 				2146F3A21E02505E0011059D /* CocoaSecurity.m in Sources */,
 				2146F3A51E02508F0011059D /* Base64.m in Sources */,

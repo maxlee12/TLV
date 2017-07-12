@@ -68,7 +68,7 @@ int  g_smartConfig = 0;
     NSLog(@"onSmartFound(), mac=%s, ip=%s, ver=%s, cap=%s, ext=%s", mac, ip, ver, cap, ext);
     [_xlwDevice SmartConfigStop];
     strcpy(g_mac, mac);
-    return true;
+    return NO;
 }
 
 -(bool)onSearchFound:(char*)mac  MODULE_IP:(char*)ip MODULE_VER:(char*)ver MODULE_CAP:(char*)cap MODULE_EXT:(char*)ext
@@ -91,7 +91,7 @@ int  g_smartConfig = 0;
     }
     
     
-    return true;
+    return NO;
 }
 -(void)onStatusChange:(char *)mac MODULE_STATUS:(int)status
 {

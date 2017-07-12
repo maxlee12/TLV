@@ -12,6 +12,7 @@
 
 #import "Util.h"
 #import "CocoaSecurity.h"
+#import "SubViewController.h"
 @interface ControlViewController ()<RevDataDelegate>
 {
     IBOutlet __weak UITextView *_senTextV;
@@ -36,6 +37,8 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(statusChange:) name:Noti_StatusChange object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(receiveData:) name:Noti_ReceiveData object:nil];
+    
+    [ControlProtol sharedInstance].delegate = self;
     
 }
 
@@ -97,6 +100,7 @@
     NSData *enBodyData = [CocoaSecurity decryptAes128Data:bodyData andkey:@"BPEj4idhF4wlqe20"];
     NSArray *arr = [[DicToData sharedInstance] dicWithNsdata:enBodyData];
     
+    NSLog(@"enBodyData:%@",enBodyData);
     NSLog(@"responseArr:%@",arr);
     
     _revTextV.text  = [NSString stringWithFormat:@"%@",data];
@@ -181,7 +185,7 @@
     
     NSDictionary *bodyDic = @{
                               @"cmd":@"0x0030",
-                              @"heartBeat":[NSString stringWithFormat:@"%f",time],
+                              @"heartBeat":[NSString stringWithFormat:@"%ld",(long)time],
                               };
     NSData *sendata = [[DicToData sharedInstance] dataWithDic:bodyDic and:_deviceMac];
     NSString *host = _deviceIp;
@@ -210,6 +214,17 @@
     
     [_beatTimer invalidate];
     _beatTimer = nil;
+    
+}
+
+- (IBAction)pushToSubDevice:(id)sender{
+    
+    SubViewController *subVc = [[SubViewController alloc] init];
+    subVc.deviceMac = self.deviceMac;
+    subVc.deviceIp = self.deviceIp;
+    
+    [self presentViewController:subVc animated:YES completion:nil];
+    
     
 }
 
